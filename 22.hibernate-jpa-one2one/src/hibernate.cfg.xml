@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>	
+	<!-- 连接数据库的参数 -->
+<session-factory>
+	<!-- 1.连接数据库参数 -->
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.url">
+		jdbc:mysql://localhost:3306/hibernate
+	</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">root</property>
+
+	<!-- 整合c3p0 -->
+	<property name="hibernate.connection.provider_class">
+		org.hibernate.c3p0.internal.C3P0ConnectionProvider
+	</property>
+	<!-- c3p0详细配置 -->
+	<property name="c3p0.min_size">10</property>
+	<property name="c3p0.max_size">20</property>
+
+	<!-- hibernate方言 -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+
+	<!-- 2.hibernate扩展参数 -->
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.format_sql">true</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+
+	<!-- 让session被TheadLocal管理 -->
+	<property name="hibernate.current_session_context_class">
+		thread
+	</property>
+	<property name="dialect"></property>
+	<mapping class="com.yiidian.domain.Card" />
+	<mapping class="com.yiidian.domain.Person" />
+
+</session-factory>
+</hibernate-configuration>	

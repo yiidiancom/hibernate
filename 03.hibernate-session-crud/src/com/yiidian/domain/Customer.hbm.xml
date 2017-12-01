@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 
+	ORM映射配置  - http://www.yiidian.com
+ -->   
+<hibernate-mapping package="com.yiidian.domain">
+ 	<!-- 
+ 		name:类名
+ 		table:表名
+ 	 -->
+ 	<class name="Customer" table="t_customer">
+ 		<!-- 主键 -->
+ 		<id name="id" column="c_id">
+ 			<generator class="native"></generator>
+ 		</id>
+ 		<!-- 其他属性 -->
+ 		<property name="name" column="c_name"></property>
+ 		<property name="gender" column="c_gender"></property>
+ 		<property name="age" column="c_age"></property>
+ 		<property name="level" column="c_level"></property>
+ 	</class>		
+ 
+ 
+</hibernate-mapping>   

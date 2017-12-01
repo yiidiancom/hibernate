@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping package="com.yiidian.domain">
+ 
+ 	<class name="User" table="t_user">
+ 		<id name="id" column="id">
+ 			<generator class="native"></generator>
+ 		</id>
+ 		<property name="name" column="name"></property>
+ 		
+ 		<!-- 多对多映射 -->
+ 		<!-- 
+ 			table:中间表名
+ 		 -->
+ 		<set name="roles" table="t_user_role">
+ 			<!-- 当前方在中间表的外键 -->
+ 			<key column="user_id"/>
+ 			<!-- column:对方在中间表的外键 -->
+ 			<many-to-many class="Role" column="role_id"/>
+ 		</set>
+ 	</class>
+ 
+</hibernate-mapping>   
